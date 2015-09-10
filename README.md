@@ -1,2 +1,2 @@
 # lemonaide
-AngularJS application for a lemonade stand to add a worthy cause
+AngularJS application for a lemonade stand to aide a worthy cause
