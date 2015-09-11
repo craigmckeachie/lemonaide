@@ -7,10 +7,10 @@
         .module('app')
         .controller('CheckoutController', CheckoutController);
 
-    CheckoutController.$inject = ['$scope'];
+    CheckoutController.$inject = ['$scope','ProductService','$log'];
 
     /* @ngInject */
-    function CheckoutController($scope) {
+    function CheckoutController($scope, ProductService, $log) {
         /* jshint validthis: true */
         var checkout = this;
 
@@ -25,11 +25,11 @@
 
         function activate() {
             checkout.total = 0;
-            checkout.items =    [{name: "Large Lemonade", price: 3, quantity: 0},
-                {name: "Medium Lemonade", price: 2, quantity: 0},
-                {name: "Health Snack", price: 4, quantity: 0},
-                {name: "Treat", price: 1, quantity: 0}
-            ];
+            checkout.items = [];
+
+            ProductService.list()
+                .then(productListSuccess, productListFailure);
+
 
             checkout.remove = function(index){
                 checkout.items.splice(index,1);
@@ -46,6 +46,15 @@
             }, true);
 
         }
+
+        function productListSuccess(result){
+            checkout.items = result.data;
+        }
+
+        function productListFailure(result){
+            $log.error(result.status);
+        }
+
 
 
     }

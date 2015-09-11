@@ -5,10 +5,10 @@
         .module('app')
         .controller('SalesController', SalesController);
 
-    SalesController.$inject = ['SalesService'];
+    SalesController.$inject = ['SalesService','$log'];
 
     /* @ngInject */
-    function SalesController(SalesService) {
+    function SalesController(SalesService, $log) {
         /* jshint validthis: true */
         var sales = this;
 
@@ -33,7 +33,7 @@
         }
 
         function salesListFailure(error){
-            console.log(error);
+            $log.log(error);
         }
 
 
