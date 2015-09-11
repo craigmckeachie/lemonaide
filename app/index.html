@@ -28,7 +28,7 @@
             <ul class="nav navbar-nav">
                 <li ng-class="{active: isActive('/checkout')}"><a href="#/checkout">Checkout <span class="sr-only">(current)</span></a></li>
                 <li ng-class="{active: isActive('/sales')}"><a href="#/sales">Sales</a></li>
-
+                <li ng-class="{active: isActive('/give')}"><a href="#/give">Give</a></li>
             </ul>
 
         </div>
@@ -41,10 +41,13 @@
 
 <script type="text/javascript" src="../bower_components/angular/angular.js"></script>
 <script type="text/javascript" src="../bower_components/angular-route/angular-route.js"></script>
+<script type="text/javascript" src="../bower_components/angular-messages/angular-messages.js"></script>
 <script type="text/javascript" src="app.module.js"></script>
 <script type="text/javascript" src="app.route.js"></script>
 <script type="text/javascript" src="checkout/checkout.controller.js"></script>
 <script type="text/javascript" src="sales/sales.controller.js"></script>
+<script type="text/javascript" src="give/give.controller.js"></script>
+<script type="text/javascript" src="give/give-form.controller.js"></script>
 <script type="text/javascript" src="filters/showdate.filter.js"></script>
 </body>
 </html>

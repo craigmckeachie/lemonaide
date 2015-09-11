@@ -16,6 +16,11 @@
                         controller: 'SalesController',
                         controllerAs: 'sales'
                     }).
+                    when('/give', {
+                        templateUrl: 'give/give.html',
+                        controller: 'GiveController',
+                        controllerAs: 'give'
+                    }).
                     otherwise({
                         redirectTo: '/checkout'
                     });

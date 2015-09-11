@@ -1,0 +1,69 @@
+<h1>{{give.title}}</h1>
+
+
+<div ng-controller="GiveFormController as formCtrl" class="col-lg-6">
+    <div ng-if="formCtrl.message.length" class="alert alert-info">{{formCtrl.message}}</div>
+    <form name="formCtrl.giveForm" novalidate ng-submit="formCtrl.submit()">
+        <div class="form-group" ng-class="{ 'has-error': formCtrl.giveForm.giverName.$touched && formCtrl.giveForm.giverName.$invalid }">
+            <label class="control-label" for="giverName">Name</label>
+            <input type="text" id="giverName" name="giverName" class="form-control" ng-model="giver.name" required ng-minlength="3" maxlength="30" />
+
+            <div ng-messages="formCtrl.giveForm.giverName.$error"
+                 ng-if="formCtrl.giveForm.giverName.$touched" ng-messages-multiple>
+
+                <div class="help-block alert alert-danger" ng-message="required">Name is required.</div>
+                <div class="help-block alert alert-danger" ng-message="minlength">Name must be at least 3 characters.</div>
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': formCtrl.giveForm.email.$touched && formCtrl.giveForm.email.$invalid }">
+            <label class="control-label" for="email">Email</label>
+            <input type="email" id="email" name="email" class="form-control" ng-model="giver.email" required />
+
+            <div ng-messages="formCtrl.giveForm.email.$error"
+                 ng-if="formCtrl.giveForm.email.$touched">
+
+                <div class="help-block alert alert-danger" ng-message="required">Email is required.</div>
+                <div class="help-block alert alert-danger" ng-message="email">Email is not valid.</div>
+
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': formCtrl.giveForm.phone.$touched && formCtrl.giveForm.phone.$invalid }">
+            <label class="control-label" for="phone">Phone</label>
+            <input type="number" id="phone" name="phone" class="form-control" ng-model="giver.phone" required ng-minlength="10" ng-maxlength="10" />
+
+            <div ng-messages="formCtrl.giveForm.phone.$error"
+                 ng-if="formCtrl.giveForm.phone.$touched" ng-messages-multiple>
+
+                <div class="help-block alert alert-danger" ng-message="required">Phone is required.</div>
+                <div class="help-block alert alert-danger" ng-message="number">Phone must be a number without other characters.</div>
+                <div class="help-block alert alert-danger" ng-message="minlength, maxlength">Phone must have a length of 10 characters.</div>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': formCtrl.giveForm.contactMethod.$touched && formCtrl.giveForm.contactMethod.$invalid }">
+            <label for="contactMethod" class="control-label">Contact By</label>
+
+            <select class="form-control" name="contactMethod" ng-model="giver.contactMethod" id="contactMethod" required>
+                <option value="">Select ...</option>
+                <option value="Phone">Phone</option>
+                <option value="Email">Email</option>
+            </select>
+
+            <div ng-messages="formCtrl.giveForm.contactMethod.$error"
+                 ng-if="formCtrl.giveForm.contactMethod.$touched" >
+
+                <div class="help-block alert alert-danger" ng-message="required">Contact by is required.</div>
+
+            </div>
+
+        </div>
+
+
+        <button type="submit" class="btn btn-default">Submit</button>
+        <hr/>
+        <pre>formCtrl.giveForm.$error = {{ formCtrl.giveForm.$error | json }}</pre>
+    </form>
+</div>
