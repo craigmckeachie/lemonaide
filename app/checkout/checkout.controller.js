@@ -1,7 +1,7 @@
-angular.module('app', []);
 
 (function () {
     "use strict";
+
 
     angular
         .module('app')
@@ -15,7 +15,8 @@ angular.module('app', []);
         var checkout = this;
 
         checkout.activate = activate;
-        checkout.title = 'CheckoutController';
+        checkout.title = 'Checkout';
+        $scope.activeTab = "checkout";
 
 
         activate();
