@@ -22,7 +22,7 @@
                         controllerAs: 'give'
                     }).
                     otherwise({
-                        redirectTo: '/checkout'
+                        redirectTo: '/'
                     });
             }]);
 
