@@ -13,7 +13,7 @@
         var give = this;
 
         give.activate = activate;
-        give.title = 'Give to a great cause.';
+        give.title = 'Give your time to a great cause.';
 
         activate();
 

@@ -6,7 +6,7 @@
     <form name="formCtrl.giveForm" novalidate ng-submit="formCtrl.submit()">
         <div class="form-group" ng-class="{ 'has-error': formCtrl.giveForm.giverName.$touched && formCtrl.giveForm.giverName.$invalid }">
             <label class="control-label" for="giverName">Name</label>
-            <input type="text" id="giverName" name="giverName" class="form-control" ng-model="giver.name" required ng-minlength="3" maxlength="30" />
+            <input type="text" id="giverName" name="giverName" class="form-control" ng-model="formCtrl.giver.name" required ng-minlength="3" maxlength="30" />
 
             <div ng-messages="formCtrl.giveForm.giverName.$error"
                  ng-if="formCtrl.giveForm.giverName.$touched" ng-messages-multiple>
@@ -19,7 +19,7 @@
 
         <div class="form-group" ng-class="{ 'has-error': formCtrl.giveForm.email.$touched && formCtrl.giveForm.email.$invalid }">
             <label class="control-label" for="email">Email</label>
-            <input type="email" id="email" name="email" class="form-control" ng-model="giver.email" required />
+            <input type="email" id="email" name="email" class="form-control" ng-model="formCtrl.giver.email" required />
 
             <div ng-messages="formCtrl.giveForm.email.$error"
                  ng-if="formCtrl.giveForm.email.$touched">
@@ -32,7 +32,7 @@
 
         <div class="form-group" ng-class="{ 'has-error': formCtrl.giveForm.phone.$touched && formCtrl.giveForm.phone.$invalid }">
             <label class="control-label" for="phone">Phone</label>
-            <input type="number" id="phone" name="phone" class="form-control" ng-model="giver.phone" required ng-minlength="10" ng-maxlength="10" />
+            <input type="number" id="phone" name="phone" class="form-control" ng-model="formCtrl.giver.phone" required ng-minlength="10" ng-maxlength="10" />
 
             <div ng-messages="formCtrl.giveForm.phone.$error"
                  ng-if="formCtrl.giveForm.phone.$touched" ng-messages-multiple>
@@ -46,7 +46,7 @@
         <div class="form-group" ng-class="{ 'has-error': formCtrl.giveForm.contactMethod.$touched && formCtrl.giveForm.contactMethod.$invalid }">
             <label for="contactMethod" class="control-label">Contact By</label>
 
-            <select class="form-control" name="contactMethod" ng-model="giver.contactMethod" id="contactMethod" required>
+            <select class="form-control" name="contactMethod" ng-model="formCtrl.giver.contactMethod" id="contactMethod" required>
                 <option value="">Select ...</option>
                 <option value="Phone">Phone</option>
                 <option value="Email">Email</option>

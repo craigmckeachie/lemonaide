@@ -21,9 +21,15 @@
                         controller: 'GiveController',
                         controllerAs: 'give'
                     }).
+                    when('/donars', {
+                        templateUrl: 'donars/donars.html',
+                        controller: 'DonarsController',
+                        controllerAs: 'donarsCtrl'
+                    }).
                     otherwise({
-                        redirectTo: '/'
+                        redirectTo: '/checkout'
                     });
             }]);
+
 
 })();

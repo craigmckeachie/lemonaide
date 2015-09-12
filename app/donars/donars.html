@@ -1,0 +1,15 @@
+<h1>{{donarsCtrl.title}}</h1>
+{{donarsCtrl.message}}
+<ul class="list-group">
+    <li class="well list-group-item" ng-repeat="donar in donarsCtrl.donars">
+        <p>
+        <img src="http://placehold.it/100x100" />
+        {{donar.name}}
+        <div>
+        <button ng-click="donarsCtrl.remove(donar)">delete</button>
+        </div>
+        </p>
+
+
+    </li>
+</ul>

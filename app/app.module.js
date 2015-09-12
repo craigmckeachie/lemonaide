@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute','ngMessages','app.filters']);
+angular.module('app', ['ngRoute','ngMessages','ngResource','app.filters']);
 
 (function () {
 
