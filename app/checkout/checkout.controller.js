@@ -13,6 +13,7 @@
     function CheckoutController($scope, ProductService, $log) {
         /* jshint validthis: true */
         var checkout = this;
+        checkout.items = [];
 
         checkout.activate = activate;
         checkout.title = 'Checkout';
@@ -25,7 +26,7 @@
 
         function activate() {
             checkout.total = 0;
-            checkout.items = [];
+
 
             ProductService.list()
                 .then(productListSuccess, productListFailure);
