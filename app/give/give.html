@@ -1,7 +1,7 @@
 <h1>{{give.title}}</h1>
 
 
-<div ng-controller="GiveFormController as formCtrl" class="col-lg-6">
+<div ng-controller="GiveFormRestController as formCtrl" class="col-lg-6">
     <div ng-if="formCtrl.message.length" class="alert alert-info">{{formCtrl.message}}</div>
     <form name="formCtrl.giveForm" novalidate ng-submit="formCtrl.submit()">
         <div class="form-group" ng-class="{ 'has-error': formCtrl.giveForm.giverName.$touched && formCtrl.giveForm.giverName.$invalid }">

@@ -23,13 +23,21 @@
                     }).
                     when('/donars', {
                         templateUrl: 'donars/donars.html',
-                        controller: 'DonarsController',
+                        controller: 'DonarsRestController',
                         controllerAs: 'donarsCtrl'
                     }).
                     otherwise({
                         redirectTo: '/checkout'
                     });
             }]);
+
+
+    angular
+        .module('app')
+        .config(function(RestangularProvider){
+            RestangularProvider.setBaseUrl("http://localhost:3000");
+        });
+
 
 
 })();
