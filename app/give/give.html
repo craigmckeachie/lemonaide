@@ -2,11 +2,10 @@
 
 
 <div ng-controller="GiveFormRestController as formCtrl" class="col-lg-6">
-    <div ng-if="formCtrl.message.length" class="alert alert-info">{{formCtrl.message}}</div>
     <form name="formCtrl.giveForm" novalidate ng-submit="formCtrl.submit()">
         <div class="form-group" ng-class="{ 'has-error': formCtrl.giveForm.giverName.$touched && formCtrl.giveForm.giverName.$invalid }">
             <label class="control-label" for="giverName">Name</label>
-            <input type="text" id="giverName" name="giverName" class="form-control" ng-model="formCtrl.giver.name" required ng-minlength="3" maxlength="30" />
+            <input cn-focus type="text" id="giverName" name="giverName" class="form-control" ng-model="formCtrl.giver.name" required ng-minlength="3" maxlength="30" />
 
             <div ng-messages="formCtrl.giveForm.giverName.$error"
                  ng-if="formCtrl.giveForm.giverName.$touched" ng-messages-multiple>

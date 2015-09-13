@@ -5,10 +5,10 @@
         .module('app')
         .controller('GiveFormRestController', GiveFormRestController);
 
-    GiveFormRestController.$inject = ['PhilanthropistRestService'];
+    GiveFormRestController.$inject = ['PhilanthropistRestService','AlertsService','$route'];
 
     /* @ngInject */
-    function GiveFormRestController(philanthropistService) {
+    function GiveFormRestController(philanthropistService, alertsService, $route) {
         /* jshint validthis: true */
         var formCtrl = this;
 
@@ -27,18 +27,17 @@
             };
 
             formCtrl.submit = function(){
-                formCtrl.message = '';
                 var form = formCtrl.giveForm;
 
                 if(!form.$dirty){
-                    formCtrl.message = 'Please fill out the form before submitting.';
-                    return;
+                    alertsService.addInfo('Please fill out the form before submitting.');
+                    return false;
                 }
 
                 if(form.$valid){
                     addDonor();
                 }else{
-                    formCtrl.message = 'Please fix the errors below and resubmit the form.';
+                    alertsService.addDanger('Please fix the errors below and resubmit the form.');
                 }
 
                 return false;
@@ -49,9 +48,10 @@
             var promiseKept = philanthropistService.post(formCtrl.giver);
 
             promiseKept.then(function() {
-                formCtrl.message = 'Thank you for donating your time. We will be contacting you shortly.';
+                alertsService.addSuccess('Thank you for donating your time. We will be contacting you shortly.');
+                $route.reload();
             }, function(response) {
-                formCtrl.message = 'No go: backend down - try again: ' + response.data.error;
+                alertsService.addDanger('No go: backend down - try again: ');
             });
 
         }

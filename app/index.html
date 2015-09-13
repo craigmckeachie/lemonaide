@@ -36,8 +36,10 @@
         </div>
     </div>
 </nav>
-<div class="container" ng-view>
 
+<div class="container">
+    <alert-bar></alert-bar>
+    <div ng-view></div>
 </div>
 
 
@@ -50,6 +52,7 @@
 
 
 <script type="text/javascript" src="app.module.js"></script>
+<script type="text/javascript" src="services/app.services.module.js"></script>
 <script type="text/javascript" src="app.route.js"></script>
 
 <script type="text/javascript" src="checkout/checkout.controller.js"></script>
@@ -71,6 +74,11 @@
 
 
 <script type="text/javascript" src="filters/showdate.filter.js"></script>
+<script type="text/javascript" src="directives/directives.module.js"></script>
+<script type="text/javascript" src="directives/focus.directive.js"></script>
+
+<script type="text/javascript" src="services/alerts.service.js"></script>
+<script type="text/javascript" src="directives/alertbar.directive.js"></script>
 
 </body>
 </html>

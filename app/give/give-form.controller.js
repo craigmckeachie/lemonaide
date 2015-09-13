@@ -5,10 +5,10 @@
         .module('app')
         .controller('GiveFormController', GiveFormController);
 
-    GiveFormController.$inject = ['PhilanthropistService'];
+    GiveFormController.$inject = ['PhilanthropistService','AlertsService','$route'];
 
     /* @ngInject */
-    function GiveFormController(philanthropistService) {
+    function GiveFormController(philanthropistService, alertsService,$route) {
         /* jshint validthis: true */
         var formCtrl = this;
 
@@ -19,39 +19,43 @@
         ////////////////
 
         function activate() {
+
             formCtrl.giver = {
                 name: '',
                 phone: '',
                 email: '',
-                contact: ''
+                contactMethod: ''
             };
 
+
             formCtrl.submit = function(){
-                formCtrl.message = '';
                 var form = formCtrl.giveForm;
 
                 if(!form.$dirty){
-                    formCtrl.message = 'Please fill out the form before submitting.';
-                    return;
+                    alertsService.addInfo('Please fill out the form before submitting.');
+                    return false;
                 }
 
                 if(form.$valid){
                     addDonor();
                 }else{
-                    formCtrl.message = 'Please fix the errors below and resubmit the form.';
+                    alertsService.addDanger('Please fix the errors below and resubmit the form.');
                 }
 
                 return false;
             };
         }
 
+
         function addDonor(){
             var promiseKept = philanthropistService.save(formCtrl.giver).$promise;
 
             promiseKept.then(function() {
-                formCtrl.message = 'Thank you for donating your time. We will be contacting you shortly.';
+                alertsService.addSuccess('Thank you for donating your time. We will be contacting you shortly.');
+                $route.reload();
+
             }, function(response) {
-                formCtrl.message = 'No go: backend down - try again: ' + response.data.error;
+                alertsService.addDanger('No go: backend down - try again: ');
             });
 
         }
