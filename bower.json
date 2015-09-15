@@ -18,5 +18,8 @@
     "angular-messages": "~1.4.5",
     "angular-route": "~1.4.5",
     "bootstrap": "~3.3.5"
+  },
+  "devDependencies": {
+    "jasmine-core": "jasmine#~2.3.4"
   }
 }
