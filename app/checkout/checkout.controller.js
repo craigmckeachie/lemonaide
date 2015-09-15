@@ -46,6 +46,10 @@
                checkout.total = total;
             }, true);
 
+            checkout.throwError = function(){
+              throw new Error("something bad happened");
+            };
+
         }
 
         function productListSuccess(result){
