@@ -13,8 +13,8 @@
         this.list = function(){
             var httpCache = $cacheFactory.get('$http');
 
-            return usingCacheFactory();
-            //return usingHttpCache();
+            //return usingCacheFactory();
+            return usingHttpCache();
 
         };
 
@@ -34,7 +34,9 @@
                 }).then(function(response){
                     data = response.data;
                     dataCache.put("lemon-products", data);
-                    deferred.resolve({data:data});
+                    deferred.resolve({data: data});
+                },function(response){
+                    deferred.reject({data:"Unable to load products."});
                 });
 
             }
@@ -64,6 +66,7 @@
                 cache: true
             });
         }
+
 
         function deleteHttpCache(url){
             var httpCache = $cacheFactory.get('$http');

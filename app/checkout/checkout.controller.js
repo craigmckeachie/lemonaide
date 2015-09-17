@@ -17,6 +17,7 @@
 
         checkout.activate = activate;
         checkout.title = 'Checkout';
+        checkout.message = '';
         $scope.activeTab = "checkout";
 
 
@@ -57,7 +58,8 @@
         }
 
         function productListFailure(result){
-            $log.error(result.status);
+            checkout.message = result.data;
+            $log.error(result.data);
         }
 
 
