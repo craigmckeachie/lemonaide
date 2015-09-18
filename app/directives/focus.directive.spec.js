@@ -12,7 +12,7 @@ describe('Focus Directive', function() {
         //Creating an createdElement that will call our directive
         //	Looks the same as when we simply write it in our HTML
         createdElement = angular.element(
-            '<input id="name" name="name" ng-class="{focus:focused}" type="text" ng-focus="focused=true"  cn-focus />'
+            '<input  ng-class="{focus:focused}" type="text" ng-focus="focused=true"  cn-focus value="test" />'
         );
 
         $compile(createdElement)($rootScope);
@@ -20,8 +20,12 @@ describe('Focus Directive', function() {
     }));
 
     xit('tag should contain the directive', function () {
-        $rootScope.$digest();
-        expect(createdElement[0].InnerHtml).toContain("cn-focus");
+        $rootScope.$apply(function(){
+
+        });
+
+        expect(createdElement.html()).toContain("cn-focus");
+
     });
 
     xit('should get focus when initialized', function() {
