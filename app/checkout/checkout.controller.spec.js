@@ -66,6 +66,10 @@ describe('Checkout Controller', function() {
                 });
             });
 
+            afterEach(function() {
+                $httpBackend.verifyNoOutstandingExpectation();
+            });
+
         });
 
         describe('is down', function () {
@@ -81,6 +85,10 @@ describe('Checkout Controller', function() {
                 expect(scope.checkout.message).toEqual('');
                 $httpBackend.flush();
                 expect(scope.checkout.message).toEqual("Unable to load products.");
+            });
+
+            afterEach(function() {
+                $httpBackend.verifyNoOutstandingExpectation();
             });
         });
 

@@ -8,7 +8,7 @@
 
     /* @ngInject */
     function PhilanthropistService($resource) {
-        return $resource('http://localhost:3000/philanthropists/:id', {}, {});
+        return $resource('http://localhost:3000/philanthropists/', {}, {});
     }
 
 })();
