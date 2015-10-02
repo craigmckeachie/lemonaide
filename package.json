@@ -1,0 +1,26 @@
+{
+  "name": "lemonaide",
+  "version": "1.0.0",
+  "description": "AngularJS application for a lemonade stand to aide a worthy cause",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/craigmckeachie/lemonaide.git"
+  },
+  "keywords": [
+    "lemonaide",
+    "angularjs"
+  ],
+  "author": "Craig McKeachie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/craigmckeachie/lemonaide/issues"
+  },
+  "homepage": "https://github.com/craigmckeachie/lemonaide",
+  "devDependencies": {
+    "gulp": "^3.9.0"
+  }
+}
