@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/craigmckeachie/lemonaide",
   "devDependencies": {
+    "del": "^2.0.2",
     "gulp": "^3.9.0",
     "run-sequence": "^1.1.4"
   }
