@@ -7,3 +7,8 @@ npm install -g gulp
 npm init
 
 npm install gulp --save-dev
+
+------------------
+02: Tasks
+npm install run-sequence --save-dev
+
