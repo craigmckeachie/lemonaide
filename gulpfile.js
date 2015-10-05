@@ -3,10 +3,11 @@ var gulp = require('gulp'),
     runSequence = require('run-sequence'),
     streamSeries = require('stream-series'),
     angularFilesort = require('gulp-angular-filesort'),
-    inject = require('gulp-inject');
+    inject = require('gulp-inject'),
+    serve = require('gulp-serve');
 
 gulp.task('default', function(callback){
-    runSequence('build', callback);
+    runSequence('build','serve', callback);
 });
 
 gulp.task('build', function (callback) {
@@ -63,4 +64,10 @@ gulp.task('copy-json', function(){
     return gulp.src('./app/**/*.json')
         .pipe(gulp.dest('./build/app'));
 });
+
+gulp.task('serve', serve({
+        root: 'build',
+        port:4000
+    }
+));
 

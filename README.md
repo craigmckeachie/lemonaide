@@ -21,5 +21,7 @@ npm install serve --save-dev
 npm install --save-dev gulp-angular-filesort
 npm install stream-series --save-dev
 
+05: Serve
+npm install gulp-serve --save-dev
 
 
