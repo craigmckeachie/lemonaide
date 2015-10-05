@@ -7,22 +7,22 @@
             function($routeProvider) {
                 $routeProvider.
                     when('/checkout', {
-                        templateUrl: 'checkout/checkout.html',
+                        templateUrl: 'app/checkout/checkout.html',
                         controller: 'CheckoutController',
                         controllerAs: 'checkout'
                     }).
                     when('/sales', {
-                        templateUrl: 'sales/sales.html',
+                        templateUrl: 'app/sales/sales.html',
                         controller: 'SalesController',
                         controllerAs: 'sales'
                     }).
                     when('/give', {
-                        templateUrl: 'give/give.html',
+                        templateUrl: 'app/give/give.html',
                         controller: 'GiveController',
                         controllerAs: 'give'
                     }).
                     when('/donars', {
-                        templateUrl: 'donars/donars.html',
+                        templateUrl: 'app/donars/donars.html',
                         controller: 'DonarsRestController',
                         controllerAs: 'donarsCtrl'
                     }).

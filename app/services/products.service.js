@@ -30,7 +30,7 @@
 
                 $http({
                     method: 'get',
-                    url: '/data/products.json'
+                    url: '/app/data/products.json'
                 }).then(function(response){
                     data = response.data;
                     dataCache.put("lemon-products", data);
@@ -62,7 +62,7 @@
         function usingHttpCache(){
             return $http({
                 method: 'get',
-                url: '/data/products.json',
+                url: '/app/data/products.json',
                 cache: true
             });
         }

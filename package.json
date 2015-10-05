@@ -23,6 +23,10 @@
   "devDependencies": {
     "del": "^2.0.2",
     "gulp": "^3.9.0",
-    "run-sequence": "^1.1.4"
+    "gulp-angular-filesort": "^1.1.1",
+    "gulp-inject": "^3.0.0",
+    "run-sequence": "^1.1.4",
+    "serve": "^1.4.0",
+    "stream-series": "^0.1.1"
   }
 }

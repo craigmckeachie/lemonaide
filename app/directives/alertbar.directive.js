@@ -10,7 +10,7 @@
     function AlertBar(AlertsService){
         return {
             restrict: "AE",
-            templateUrl: "/directives/alertbar.html",
+            templateUrl: "/app/directives/alertbar.html",
             scope: true,
             controller: function($scope) {
                 $scope.removeAlert = function (alert) {
