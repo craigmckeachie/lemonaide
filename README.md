@@ -26,4 +26,7 @@ npm install gulp-serve --save-dev
 
 06: Config
 
+07: Watch
+npm install gulp-jshint --save-dev
+
 

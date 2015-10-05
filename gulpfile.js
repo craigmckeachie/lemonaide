@@ -4,7 +4,8 @@ var gulp = require('gulp'),
     streamSeries = require('stream-series'),
     angularFilesort = require('gulp-angular-filesort'),
     inject = require('gulp-inject'),
-    serve = require('gulp-serve');
+    serve = require('gulp-serve'),
+    jshint = require('gulp-jshint');
 
 var config = require('./gulp/gulp.config.js');
 
@@ -15,7 +16,6 @@ gulp.task('default', function(callback){
 gulp.task('build', function (callback) {
     runSequence('clean','copy-build','index',callback);
 });
-
 
 
 gulp.task('index', function () {
@@ -69,9 +69,20 @@ gulp.task('copy-json', function(){
         .pipe(gulp.dest('./build/app'));
 });
 
+gulp.task('lint', function () {
+    return gulp.src(config.files.js)
+        .pipe(jshint())
+        .pipe(jshint.reporter('default'));
+});
+
 gulp.task('serve', serve({
         root: config.build_dir,
         port:4000
     }
 ));
+
+gulp.task('watch', function () {
+    gulp.watch(config.files.js, ['lint']);
+});
+
 
