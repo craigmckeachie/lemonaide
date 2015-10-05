@@ -6,6 +6,8 @@ var gulp = require('gulp'),
     inject = require('gulp-inject'),
     serve = require('gulp-serve');
 
+var config = require('./gulp/gulp.config.js');
+
 gulp.task('default', function(callback){
     runSequence('build','serve', callback);
 });
@@ -14,23 +16,25 @@ gulp.task('build', function (callback) {
     runSequence('clean','copy-build','index',callback);
 });
 
+
+
 gulp.task('index', function () {
-    var jsThirdPartyLibraryFiles = ['./build/libs/**/!(angular)*.js']
-    var jsAngularLibraryFiles = ['./build/libs/**/angular*.js'];
-    var jsAppFiles = ['./build/app/**/*.js', '!./build/app/**/*.spec.js'];
-    var cssFiles = ['./build/app/styles/*.css'];
-    var jsAngularLibraryFilesStreamSorted = gulp.src(jsAngularLibraryFiles).pipe(angularFilesort());
-    var jsAppFilesStreamSorted = gulp.src(jsAppFiles).pipe(angularFilesort());
-    var jsThirdPartyFilesStream = gulp.src(jsThirdPartyLibraryFiles);
+    //var jsThirdPartyLibraryFiles = ['./build/libs/**/!(angular)*.js']
+    //var jsAngularLibraryFiles = ['./build/libs/**/angular*.js'];
+    //var jsAppFiles = ['./build/app/**/*.js', '!./build/app/**/*.spec.js'];
+    //var cssFiles = ['./build/app/styles/*.css'];
+    var jsAngularLibraryFilesStreamSorted = gulp.src(config.files.jsAngular).pipe(angularFilesort());
+    var jsAppFilesStreamSorted = gulp.src(config.files.jsApp).pipe(angularFilesort());
+    var jsThirdPartyFilesStream = gulp.src(config.files.jsThirdParty);
 
     return gulp.src('./app/index.html')
         .pipe(inject(streamSeries(jsAngularLibraryFilesStreamSorted,jsThirdPartyFilesStream, jsAppFilesStreamSorted ) , {ignorePath: 'build'}))
-        .pipe(inject(gulp.src(cssFiles), {ignorePath: 'build'}))
-        .pipe(gulp.dest('./build'));
+        .pipe(inject(gulp.src(config.files.css), {ignorePath: 'build'}))
+        .pipe(gulp.dest(config.build_dir));
 });
 
 gulp.task('clean', function () {
-    return del(['./build'], {force: true});
+    return del([config.build_dir], {force: true});
 });
 
 gulp.task('copy-build',['copy-templates','copy-json','copy-styles','copy-fonts','copy-app-js','copy-vendor-js']);
@@ -66,7 +70,7 @@ gulp.task('copy-json', function(){
 });
 
 gulp.task('serve', serve({
-        root: 'build',
+        root: config.build_dir,
         port:4000
     }
 ));

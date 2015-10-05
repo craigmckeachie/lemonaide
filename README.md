@@ -24,4 +24,6 @@ npm install stream-series --save-dev
 05: Serve
 npm install gulp-serve --save-dev
 
+06: Config
+
 
