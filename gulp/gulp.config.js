@@ -5,6 +5,7 @@ module.exports = {
         jsThirdParty : ['./build/libs/**/!(angular)*.js'],
         jsAngular : ['./build/libs/**/angular*.js'],
         jsApp : ['./build/app/**/*.js', '!./build/app/**/*.spec.js'],
-        css : ['./build/app/styles/*.css']
+        css : ['./build/app/styles/*.css'],
+        templates: ['./app/**/!(index)!(SpecRunner)*.html']
     }
 }

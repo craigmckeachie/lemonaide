@@ -29,4 +29,5 @@ npm install gulp-serve --save-dev
 07: Watch
 npm install gulp-jshint --save-dev
 
-
+08: Templates
+npm install gulp-angular-templatecache --save-dev

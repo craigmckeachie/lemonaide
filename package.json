@@ -24,6 +24,7 @@
     "del": "^2.0.2",
     "gulp": "^3.9.0",
     "gulp-angular-filesort": "^1.1.1",
+    "gulp-angular-templatecache": "^1.7.0",
     "gulp-inject": "^3.0.0",
     "gulp-jshint": "^1.11.2",
     "gulp-serve": "^1.2.0",

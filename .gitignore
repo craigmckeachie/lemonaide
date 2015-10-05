@@ -5,7 +5,7 @@ node_modules
 
 bower_components
 build
-
+app/templates.js
 
 .idea/*
 

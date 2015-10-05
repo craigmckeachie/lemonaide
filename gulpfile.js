@@ -5,7 +5,8 @@ var gulp = require('gulp'),
     angularFilesort = require('gulp-angular-filesort'),
     inject = require('gulp-inject'),
     serve = require('gulp-serve'),
-    jshint = require('gulp-jshint');
+    jshint = require('gulp-jshint'),
+    angularTemplateCache = require('gulp-angular-templatecache');
 
 var config = require('./gulp/gulp.config.js');
 
@@ -14,15 +15,11 @@ gulp.task('default', function(callback){
 });
 
 gulp.task('build', function (callback) {
-    runSequence('clean','copy-build','index',callback);
+    runSequence('clean','copy-build','cache-templates','index',callback);
 });
 
 
 gulp.task('index', function () {
-    //var jsThirdPartyLibraryFiles = ['./build/libs/**/!(angular)*.js']
-    //var jsAngularLibraryFiles = ['./build/libs/**/angular*.js'];
-    //var jsAppFiles = ['./build/app/**/*.js', '!./build/app/**/*.spec.js'];
-    //var cssFiles = ['./build/app/styles/*.css'];
     var jsAngularLibraryFilesStreamSorted = gulp.src(config.files.jsAngular).pipe(angularFilesort());
     var jsAppFilesStreamSorted = gulp.src(config.files.jsApp).pipe(angularFilesort());
     var jsThirdPartyFilesStream = gulp.src(config.files.jsThirdParty);
@@ -60,7 +57,7 @@ gulp.task('copy-vendor-js', function(){
 });
 
 gulp.task('copy-templates', function(){
-    return gulp.src('./app/**/!(index)!(SpecRunner)*.html')
+    return gulp.src(config.files.templates)
         .pipe(gulp.dest('./build/app'));
 });
 
@@ -84,5 +81,13 @@ gulp.task('serve', serve({
 gulp.task('watch', function () {
     gulp.watch(config.files.js, ['lint']);
 });
+
+gulp.task('cache-templates', function() {
+    return gulp.src(config.files.templates)
+        .pipe(angularTemplateCache())
+        .pipe(gulp.dest('./app'));
+});
+
+
 
 
