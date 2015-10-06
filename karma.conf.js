@@ -19,7 +19,6 @@ module.exports = function (config) {
             'libs/lodash.js',
             'libs/restangular.js',
             'app/app.module.js',
-            //'filters/showdate.filter.spec.js',
             'app/services/app.services.module.js',
             'app/directives/directives.module.js',
             'app/**/!(*.spec).js',
