@@ -1,13 +1,14 @@
 describe('Checkout Controller', function() {
     'use strict';
-    var scope, ctrl;
+    var scope, ctrl, ProductService;
 
     beforeEach(module('app'));
     beforeEach(module('app.services'));
 
-    beforeEach(inject(function($rootScope, $controller) {
+    beforeEach(inject(function($rootScope, $controller, _ProductService_) {
         scope = $rootScope.$new();
-        ctrl = $controller('CheckoutController', {$scope: scope});
+        ProductService = _ProductService_;
+        ctrl = $controller('CheckoutController', {$scope: scope, ProductService: ProductService});
         scope.checkout = ctrl;
     }));
 
@@ -98,7 +99,7 @@ describe('Checkout Controller', function() {
 
 
 
-    
+
 
     function getProductsArray(){
         return [

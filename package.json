@@ -28,6 +28,9 @@
     "gulp-inject": "^3.0.0",
     "gulp-jshint": "^1.11.2",
     "gulp-serve": "^1.2.0",
+    "jasmine-core": "^2.3.4",
+    "karma": "^0.13.10",
+    "karma-jasmine": "^0.3.6",
     "run-sequence": "^1.1.4",
     "serve": "^1.4.0",
     "stream-series": "^0.1.1"

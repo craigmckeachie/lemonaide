@@ -31,3 +31,13 @@ npm install gulp-jshint --save-dev
 
 08: Templates
 npm install gulp-angular-templatecache --save-dev
+
+09: Unit Testing
+npm install karma --save-dev
+npm install karma-jasmine --save-dev
+npm install karma-chrome-launcher
+
+karma init karma.conf.js or start with existing file
+
+
+karma start --browsers Firefox

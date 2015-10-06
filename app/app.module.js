@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute','ngMessages','ngResource','restangular','app.filters','app.common.directives','app.services','templates']);
+angular.module('app', ['ngRoute','ngMessages','ngResource','restangular','app.common.directives','app.services','templates']);
 
 //module used by the build process to cache templates
 angular.module('templates', []);
