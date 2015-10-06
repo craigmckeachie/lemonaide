@@ -23,7 +23,7 @@ describe('Route Tests', function(){
     describe('checkout route', function() {
 
         beforeEach(inject(function() {
-            $httpBackend.expectGET('checkout/checkout.html')
+            $httpBackend.expectGET('app/checkout/checkout.html')
                 .respond(200, 'checkout html');
         }));
 
@@ -42,7 +42,7 @@ describe('Route Tests', function(){
             $location.path('/non/existent');
             $httpBackend.flush();
             expect($route.current.controller).toBe('CheckoutController');
-            expect($route.current.templateUrl).toBe('checkout/checkout.html');
+            expect($route.current.templateUrl).toBe('app/checkout/checkout.html');
         });
 
     });
@@ -50,7 +50,7 @@ describe('Route Tests', function(){
     describe('sales route', function() {
 
         beforeEach(inject(function() {
-            $httpBackend.expectGET('sales/sales.html')
+            $httpBackend.expectGET('app/sales/sales.html')
                 .respond(200, 'sales html');
         }));
 
@@ -65,7 +65,7 @@ describe('Route Tests', function(){
     describe('give route', function() {
 
         beforeEach(inject(function() {
-            $httpBackend.expectGET('give/give.html')
+            $httpBackend.expectGET('app/give/give.html')
                 .respond(200, 'give html');
         }));
 
@@ -80,7 +80,7 @@ describe('Route Tests', function(){
     describe('donars route', function() {
 
         beforeEach(inject(function() {
-            $httpBackend.expectGET('donars/donars.html')
+            $httpBackend.expectGET('app/donars/donars.html')
                 .respond(200, 'donars html');
         }));
 

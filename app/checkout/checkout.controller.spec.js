@@ -1,14 +1,14 @@
 describe('Checkout Controller', function() {
     'use strict';
-    var scope, ctrl, ProductService;
+    var scope, ctrl;
 
     beforeEach(module('app'));
     beforeEach(module('app.services'));
 
-    beforeEach(inject(function($rootScope, $controller, _ProductService_) {
+    beforeEach(inject(function($rootScope, $controller) {
         scope = $rootScope.$new();
-        ProductService = _ProductService_;
-        ctrl = $controller('CheckoutController', {$scope: scope, ProductService: ProductService});
+
+        ctrl = $controller('CheckoutController', {$scope: scope});
         scope.checkout = ctrl;
     }));
 
@@ -30,7 +30,7 @@ describe('Checkout Controller', function() {
         describe('is up', function () {
             beforeEach(inject(function(_$httpBackend_) {
                 $httpBackend = _$httpBackend_;
-                $httpBackend.expectGET('/data/products.json').
+                $httpBackend.expectGET('app/data/products.json').
                     respond(getProductsArray());
 
             }));
@@ -77,7 +77,7 @@ describe('Checkout Controller', function() {
 
             beforeEach(inject(function(_$httpBackend_) {
                 $httpBackend = _$httpBackend_;
-                $httpBackend.expectGET('/data/products.json').
+                $httpBackend.expectGET('app/data/products.json').
                     respond(404,"Unable to load products.");
 
             }));

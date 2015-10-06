@@ -34,7 +34,7 @@ gulp.task('clean', function () {
     return del([config.build_dir], {force: true});
 });
 
-gulp.task('copy-build',['copy-templates','copy-json','copy-styles','copy-fonts','copy-app-js','copy-vendor-js']);
+gulp.task('copy-build',['copy-templates','copy-json','copy-jasmine-runner','copy-styles','copy-fonts','copy-app-js','copy-vendor-js']);
 
 gulp.task('copy-styles', function(){
     return gulp.src('./app/styles/**/*.css')
@@ -52,13 +52,18 @@ gulp.task('copy-app-js', function(){
 });
 
 gulp.task('copy-vendor-js', function(){
-    return gulp.src('./libs/*.js')
+    return gulp.src(['./libs/**/*.js','./libs/**/*.css'])
         .pipe(gulp.dest('./build/libs'));
 });
 
 gulp.task('copy-templates', function(){
     return gulp.src(config.files.templates)
         .pipe(gulp.dest('./build/app'));
+});
+
+gulp.task('copy-jasmine-runner', function(){
+    return gulp.src('./test/specrunner.html')
+        .pipe(gulp.dest('./build/'));
 });
 
 gulp.task('copy-json', function(){
@@ -84,7 +89,7 @@ gulp.task('watch', function () {
 
 gulp.task('cache-templates', function() {
     return gulp.src(config.files.templates)
-        .pipe(angularTemplateCache())
+        .pipe(angularTemplateCache({root: 'app'}))
         .pipe(gulp.dest('./app'));
 });
 

@@ -22,7 +22,7 @@ module.exports = function (config) {
             //'filters/showdate.filter.spec.js',
             'app/services/app.services.module.js',
             'app/directives/directives.module.js',
-            'app/**/!*(spec).js',
+            'app/**/!(*.spec).js',
             //'app/testing/js/unit-test-helpers.js',
             'app/**/*.html',
             'libs/angular-mocks.js',
@@ -30,7 +30,7 @@ module.exports = function (config) {
 
         ],
         exclude: ['app/**/SpecRunner.html',
-            'app/index.html'],
+            'app/index.html','app/templates.js'],
 
 
         /*********************************************************/
