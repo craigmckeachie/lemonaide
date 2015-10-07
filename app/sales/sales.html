@@ -11,7 +11,7 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="sale in sales.transactions | limitTo: sales.numberOfRows">
+    <tr class="sale" ng-repeat="sale in sales.transactions | limitTo: sales.numberOfRows">
         <td>{{sale.date | showDate}}</td>
         <td>{{sale.quantity}}</td>
         <td>{{sale.netSale | currency}}</td>

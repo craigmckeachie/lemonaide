@@ -1,4 +1,4 @@
-angular.module('app', ['ngRoute','ngMessages','ngResource','restangular','app.filters','app.common.directives','app.services']);
+angular.module('app', ['ngRoute','ngMessages','ngResource','ngAnimate','restangular','app.filters','app.common.directives','app.services']);
 
 (function () {
 
