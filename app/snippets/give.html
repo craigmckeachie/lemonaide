@@ -1,0 +1,71 @@
+<!--http://getbootstrap.com/css/#forms -->
+<h1>Give</h1>
+
+<div >
+    <div class="alert alert-info"></div>
+    <form>
+        <div class="form-group">
+            <label class="control-label" for="giverName">Name</label>
+            <input cn-focus type="text" id="giverName"
+                   class="form-control"
+                   />
+
+            <div>
+                <div class="help-block alert alert-danger">
+                    Name is required.
+                </div>
+                <div class="help-block alert alert-danger">
+                    Name must be at least 3 characters.
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <label class="control-label" for="email">Email</label>
+            <input type="email" name="email" class="form-control"/>
+
+            <div>
+
+                <div class="help-block alert alert-danger">Email is required.</div>
+                <div class="help-block alert alert-danger">Email is not valid.</div>
+
+            </div>
+        </div>
+
+        <div class="form-group" >
+            <label class="control-label" for="phone">Phone</label>
+            <input type="number" id="phone"  class="form-control"  required ng-minlength="10" ng-maxlength="10" />
+
+            <div>
+
+                <div class="help-block alert alert-danger">Phone is required.</div>
+                <div class="help-block alert alert-danger">Phone must be a number without other characters.</div>
+                <div class="help-block alert alert-danger" >Phone must have a length of 10 characters.</div>
+            </div>
+        </div>
+
+        <div class="form-group" ng-class="{ 'has-error': formCtrl.giveForm.contactMethod.$touched && formCtrl.giveForm.contactMethod.$invalid }">
+            <label for="contactMethod" class="control-label">Contact By</label>
+
+            <select class="form-control" name="contactMethod"  id="contactMethod" >
+                <option value="">Select ...</option>
+                <option value="Phone">Phone</option>
+                <option value="Email">Email</option>
+            </select>
+
+            <div>
+
+                <div class="help-block alert alert-danger">Contact by is required.</div>
+
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+
+        <hr/>
+        <pre>
+        </pre>
+    </form>
+
+</div>

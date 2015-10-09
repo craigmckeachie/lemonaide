@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Large Lemonade",
+    "price": 3,
+    "quantity": 0
+  },
+  {
+    "name": "Medium Lemonade",
+    "price": 2,
+    "quantity": 0
+  },
+  {
+    "name": "Health Snack",
+    "price": 4,
+    "quantity": 0
+  },
+  {
+    "name": "Treat",
+    "price": 1,
+    "quantity": 0
+  }
+]

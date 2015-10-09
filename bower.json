@@ -5,6 +5,11 @@
   "authors": [
     "Craig McKeachie <craigdmckeachie@gmail.com>"
   ],
+  "description": "AngularJS application for a lemonade stand to aide a worthy cause",
+  "keywords": [
+    "angularjs",
+    "training"
+  ],
   "license": "MIT",
   "ignore": [
     "**/.*",
@@ -14,7 +19,12 @@
     "tests"
   ],
   "dependencies": {
+    "angular-animate": "1.4.5",
+    "angular-mocks": "~1.4.5",
+    "angular-resource": "~1.4.5",
+    "angular-messages": "~1.4.5",
+    "angular-route": "~1.4.5",
     "bootstrap": "~3.3.5",
-    "angular": "~1.4.5"
+    "restangular": "~1.5.1"
   }
 }
