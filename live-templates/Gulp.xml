@@ -1,0 +1,20 @@
+<templateSet group="Gulp">
+  <template name="gulpt" value="gulp.task('$NAME$', [], function() {&#10;&#10;});" description="gulp.task('name', [modules], function() {})" toReformat="true" toShortenFQNames="true">
+    <variable name="NAME" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="gulps" value="gulp.src('$PATH$')&#10;  .pipe(name(''))" description="gulp.src('/path').pipe()" toReformat="true" toShortenFQNames="true">
+    <variable name="PATH" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+  <template name="gulpw" value="gulp.watch('$SRC$', ['default']);" description="gulp.watch('/path/to/src', ['default']);" toReformat="true" toShortenFQNames="true">
+    <variable name="SRC" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
+</templateSet>
